@@ -1,1 +1,15 @@
 <app-navbar></app-navbar>
+
+<div class="container mt-4">
+  <div class="row">
+    @for (item of noticias(); track item.id) {
+      <div class="col-md-4">
+        <app-card-noticia [noticia]="item"></app-card-noticia>
+      </div>
+    } @empty {
+      <div class="col-12 text-center">
+        <p>Nenhuma notícia encontrada no momento.</p>
+      </div>
+    }
+  </div>
+</div>
