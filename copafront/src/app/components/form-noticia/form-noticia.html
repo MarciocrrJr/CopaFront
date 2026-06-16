@@ -1,37 +1,40 @@
-<div class="card p-4 mb-5 bg-light shadow-sm">
-  <h3 class="mb-3 text-primary">Publicar noticia</h3>
+<div class="card p-4 mb-5 shadow" style="background-color: #ffffff; border-top: 6px solid #009c3b; border-bottom: 4px solid #ffdf00; border-left: none; border-right: none; border-radius: 8px;">
+  <h3 class="mb-4" style="color: #002776; border-left: none; padding-left: 0; font-weight: bold;">
+     Publicar nova noticia
+  </h3>
   
   <form (ngSubmit)="cadastrarNoticia()">
-
     <div class="row">
       <div class="col-md-6 mb-3">
-        <label class="form-label font-weight-bold">Autor</label>
-        <input type="text" class="form-control" name="autor" [(ngModel)]="novaNoticia.autor">
-      </div>
-      
-      <div class="col-md-6 mb-3">
-        <label class="form-label">Data</label>
-        <input type="date" class="form-control" name="data" [(ngModel)]="novaNoticia.data">
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-6 mb-3">
-        <label class="form-label font-weight-bold">Titulo</label>
+        <label class="form-label fw-semibold text-secondary">Titulo</label>
         <input type="text" class="form-control" name="titulo" [(ngModel)]="novaNoticia.titulo">
       </div>
       
       <div class="col-md-6 mb-3">
-        <label class="form-label">Subtitulo</label>
+        <label class="form-label fw-semibold text-secondary">Subtitulo (Opcional)</label>
         <input type="text" class="form-control" name="subtitulo" [(ngModel)]="novaNoticia.subtitulo">
       </div>
     </div>
 
-    <div class="mb-3">
-      <label class="form-label font-weight-bold">Conteudo</label>
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label class="form-label fw-semibold text-secondary">Autor</label>
+        <input type="text" class="form-control" name="autor" [(ngModel)]="novaNoticia.autor">
+      </div>
+      
+      <div class="col-md-6 mb-3">
+        <label class="form-label fw-semibold text-secondary">Data</label>
+        <input type="date" class="form-control" name="data" [(ngModel)]="novaNoticia.data">
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <label class="form-label fw-semibold text-secondary">Conteudo</label>
       <textarea class="form-control" name="conteudo" rows="4" [(ngModel)]="novaNoticia.conteudo"></textarea>
     </div>
 
-    <button type="submit" class="btn btn-success px-4">Publicar Notícia</button>
+    <div class="text-end">
+      <button type="submit" class="btn btn-success px-5 py-2 fs-5 shadow-sm">Publicar Noticia 🇧🇷</button>
+    </div>
   </form>
 </div>

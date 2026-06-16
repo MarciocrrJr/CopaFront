@@ -2,3 +2,44 @@
 
 @import "bootstrap/dist/css/bootstrap.min.css";
 @import "bootstrap-icons/font/bootstrap-icons.css";
+
+:root {
+  --verde-brasil: #009c3b;
+  --amarelo-brasil: #ffdf00;
+  --azul-brasil: #002776;
+  --fundo: #769aff;
+}
+
+html, body {
+  background-color: var(--fundo) !important;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h3 {
+  color: var(--azul-brasil);
+  font-weight: 700;
+  border-left: 5px solid var(--verde-brasil);
+  padding-left: 10px;
+}
+
+.btn-success {
+  background-color: var(--verde-brasil) !important;
+  border-color: var(--verde-brasil) !important;
+  color: #ffffff !important;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.btn-success:hover {
+  background-color: #007a2e !important;
+  box-shadow: 0 4px 8px rgba(0, 156, 59, 0.3);
+}
+
+hr {
+  border-top: 2px dashed var(--amarelo-brasil);
+  opacity: 0.7;
+  margin: 2rem 0;
+}

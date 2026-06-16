@@ -14,21 +14,36 @@ export class CardNoticia {
   @Input({ required: true }) noticia!: Jornal;
   @Output() noticiaExcluida = new EventEmitter<void>();
 
-  solicitarExclusao(): void {
-    const senhaDigitada = prompt('Digite a senha de administrador para excluir esta noticia:');
-    
-    if (senhaDigitada === null) return;
+  protected exibindoModalSenha = false;
+  protected senhaDigitada = '';
 
-    this.jornalService.excluirNoticia(this.noticia.id, senhaDigitada).subscribe({
+  abrirConfirmacao(): void {
+    this.senhaDigitada = '';
+    this.exibindoModalSenha = true;
+  }
+
+  fecharConfirmacao(): void {
+    this.exibindoModalSenha = false;
+    this.senhaDigitada = '';
+  }
+
+  confirmarExclusao(): void {
+    if (!this.senhaDigitada) {
+      alert('Por favor, insira a senha!');
+      return;
+    }
+
+    this.jornalService.excluirNoticia(this.noticia.id, this.senhaDigitada).subscribe({
       next: () => {
-        alert('Exclusão realizada com sucesso!');
+        alert('Notícia excluída com sucesso!');
+        this.fecharConfirmacao();
         this.noticiaExcluida.emit();
       },
       error: (err) => {
         if (err.status === 401) {
-          alert('Senha incorreta');
+          alert('Senha incorreta! Permissão negada.');
         } else {
-          alert('Erro ao tentar excluir');
+          alert('Erro ao tentar excluir a notícia.');
           console.error(err);
         }
       }
