@@ -1,6 +1,6 @@
-import { Component, OnInit, inject, signal } from '@angular/core'; // Adicionado OnInit e inject aqui
-import { JornalService } from './services/jornal.service';       // Adicionado o import do seu serviço
-import { Jornal } from './models/jornal.model';                   // Adicionado o import do seu modelo
+import { Component, OnInit, inject, signal } from '@angular/core';
+import { JornalService } from './services/jornal.service';
+import { Jornal } from './models/jornal.model';
 
 @Component({
   selector: 'app-root',
@@ -15,10 +15,12 @@ export class App implements OnInit {
   protected readonly noticias = signal<Jornal[]>([]);
 
   ngOnInit(): void {
+    this.carregarNoticias();
+  }
+
+  carregarNoticias(): void {
     this.jornalService.getNoticias().subscribe({
-      next: (dados) => {
-        this.noticias.set(dados);
-      },
+      next: (dados) => this.noticias.set(dados),
       error: (err) => console.error('Erro ao buscar notícias:', err)
     });
   }

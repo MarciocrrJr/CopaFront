@@ -13,4 +13,8 @@ export class JornalService {
   getNoticias(): Observable<Jornal[]> {
     return this.http.get<Jornal[]>(this.apiUrl);
   }
+
+  salvarNoticia(noticia: Omit<Jornal, 'id'>): Observable<Jornal> {
+    return this.http.post<Jornal>(this.apiUrl, noticia);
+  }
 }
