@@ -9,7 +9,10 @@
   <div class="row">
     @for (item of noticias(); track item.id) {
       <div class="col-md-4">
-        <app-card-noticia [noticia]="item"></app-card-noticia>
+        <app-card-noticia 
+          [noticia]="item" 
+          (noticiaExcluida)="carregarNoticias()">
+        </app-card-noticia>
       </div>
     } @empty {
       <div class="col-12 text-center my-4">
